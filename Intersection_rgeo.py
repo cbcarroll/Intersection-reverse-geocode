@@ -63,7 +63,7 @@ for index, row in inputcsv.iterrows():
 		street_1_list = list(street_1)
 		
 		#N/S/E/W cleanup
-		if street_1_list[1] == ' ': #removes the N/S/E/W designation
+		if street_1_list[1] == ' ': #removes the N/S/E/W designation, if present
 			street_1_list.pop(0)
 			street_1_list.pop(0)
 			
@@ -89,7 +89,7 @@ for index, row in inputcsv.iterrows():
 		street_2_list = list(street_2)
 
 		#N/S/E/W cleanup
-		if street_2_list[1] == ' ': #removes the N/S/E/W designation
+		if street_2_list[1] == ' ': #removes the N/S/E/W designation, if present
 			street_2_list.pop(0)
 			street_2_list.pop(0)
 			
