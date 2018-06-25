@@ -72,7 +72,7 @@ for index, row in inputcsv.iterrows():
 			street_1_clean = ''.join(street_1_list)
 			output_table['o_street1_clean'].append(street_1_clean)
 			
-		if street_1_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
+		elif street_1_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
 			street_1_list.pop()
 			street_1_list.pop()
 			street_1_list.pop()
@@ -98,7 +98,7 @@ for index, row in inputcsv.iterrows():
 			street_2_clean = ''.join(street_2_list)
 			output_table['o_street2_clean'].append(street_2_clean)
 		
-		if street_2_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
+		elif street_2_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
 			street_2_list.pop()
 			street_2_list.pop()
 			street_2_list.pop()
