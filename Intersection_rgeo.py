@@ -37,7 +37,7 @@ for index, row in inputcsv.iterrows():
 	payload = {'lat': table['lat'], 'lng': table['lng'], 'username': 'cbcarroll'}
 	
 	#make call to geonames URL api to return JSON response
-	print("Making call to intersection API for UUID:",table['resto_uuid'])
+	#print("Making call to intersection API for UUID:",table['resto_uuid'])
 	rgeo = requests.get('http://api.geonames.org/findNearestIntersectionJSON', auth=('user', 'pass'), verify=False, params=payload)
 	rgeo.encoding = 'utf-8'
 
@@ -112,7 +112,7 @@ for index, row in inputcsv.iterrows():
 		output_table['o_street2_clean'].append(street_2_clean)
 
 		#yay, we made it, lest celebrate with this print statement        
-		print("SUCCESS looking up UUID:",table['resto_uuid'])
+		print("SUCCESS - Received intersection for UUID:",table['resto_uuid'])
 		print()
 	else:
 		output_table['o_uuid'].append(table['resto_uuid'])
