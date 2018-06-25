@@ -117,6 +117,7 @@ for index, row in inputcsv.iterrows():
 
 		#yay, we made it, lest celebrate with this print statement        
 		print("SUCCESS looking up UUID:",table['resto_uuid'])
+		print()
 	else:
 		output_table['o_uuid'].append(table['resto_uuid'])
 		output_table['o_lat'].append(table['lat'])
