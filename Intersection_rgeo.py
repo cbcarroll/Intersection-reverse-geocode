@@ -12,7 +12,7 @@ import json
 import pandas
 
 #open and read the csv with pandas
-inputcsv = pandas.read_csv(r'input2.csv')
+inputcsv = pandas.read_csv(r'input_25.csv')
 print(inputcsv)
 print()
 
