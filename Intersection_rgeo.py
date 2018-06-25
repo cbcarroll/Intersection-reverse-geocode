@@ -12,7 +12,7 @@ import json
 import pandas
 
 #open and read the csv with pandas
-inputcsv = pandas.read_csv(r'input_25.csv')
+inputcsv = pandas.read_csv(r'input_7.csv')
 print(inputcsv)
 print()
 
@@ -68,7 +68,10 @@ for index, row in inputcsv.iterrows():
 			street_1_list.pop(0)
 			
 		#st/rd/ln/pl cleanup
-		if street_1_list[0] in ['1,'2','3','4','5','6','7','8','9','0']: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
+		if street_1_list[-1] in ['1','2','3','4','5','6','7','8','9','0']: #does not make changes to "State Rte {{number}}" streets
+			pass
+		
+		elif street_1_list[0] in ['1','2','3','4','5','6','7','8','9','0']: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
 			pass
 		
 		elif street_1_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
@@ -94,7 +97,10 @@ for index, row in inputcsv.iterrows():
 			street_2_list.pop(0)
 			
 		#st/rd/ln/pl cleanup
-		if street_2_list[0] in ['1,'2','3','4','5','6','7','8','9','0']: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
+		if street_1_list[-1] in ['1','2','3','4','5','6','7','8','9','0']: #does not make changes to "State Rte {{number}}" streets
+			pass
+		
+		elif street_2_list[0] in ['1','2','3','4','5','6','7','8','9','0']: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
 			pass
 		
 		elif street_2_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
@@ -113,6 +119,7 @@ for index, row in inputcsv.iterrows():
 
 		#yay, we made it, lest celebrate with this print statement        
 		print("SUCCESS - Received intersection for UUID:",table['resto_uuid'])
+
 	else:
 		output_table['o_uuid'].append(table['resto_uuid'])
 		output_table['o_lat'].append(table['lat'])
