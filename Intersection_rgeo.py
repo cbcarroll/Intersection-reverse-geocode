@@ -12,7 +12,7 @@ import json
 import pandas
 
 #open and read the csv with pandas
-inputcsv = pandas.read_csv(r'input2.csv')
+inputcsv = pandas.read_csv(r'input_25.csv')
 print(inputcsv)
 print()
 
@@ -76,14 +76,16 @@ for index, row in inputcsv.iterrows():
 			street_1_list.pop()
 			street_1_list.pop()
 			street_1_list.pop()
+			street_1_clean = ''.join(street_1_list)
+			output_table['o_street1_clean'].append(street_1_clean)
 			
 		elif street_1_list[-4] == ' ': #removes Ave cases (3 letter abbreviation cases)
 			street_1_list.pop()
 			street_1_list.pop()
 			street_1_list.pop()
 			street_1_list.pop()
-		street_1_clean = ''.join(street_1_list)
-		output_table['o_street1_clean'].append(street_1_clean)
+			street_1_clean = ''.join(street_1_list)
+			output_table['o_street1_clean'].append(street_1_clean)
 
 		#street_2
 		street_2_list = list(street_2)
@@ -102,17 +104,20 @@ for index, row in inputcsv.iterrows():
 			street_2_list.pop()
 			street_2_list.pop()
 			street_2_list.pop()
+			street_2_clean = ''.join(street_2_list)
+			output_table['o_street2_clean'].append(street_2_clean)
 			
 		elif street_2_list[-4] == ' ': #removes Ave cases (3 letter abbreviation cases)
 			street_2_list.pop()
 			street_2_list.pop()
 			street_2_list.pop()
 			street_2_list.pop()
-		street_2_clean = ''.join(street_2_list)
-		output_table['o_street2_clean'].append(street_2_clean)
+			street_2_clean = ''.join(street_2_list)
+			output_table['o_street2_clean'].append(street_2_clean)
 
 		#yay, we made it, lest celebrate with this print statement        
 		print("SUCCESS looking up UUID:",table['resto_uuid'])
+		print()
 	else:
 		output_table['o_uuid'].append(table['resto_uuid'])
 		output_table['o_lat'].append(table['lat'])
