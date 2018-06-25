@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Use this script to get the closest intersection given a lat/lng pair
+#Use this script to get the closest intersection given a lat/lng pair
 #Clay Carroll cbcarroll@gmail.com
 
 #Requests Module: http://docs.python-requests.org/en/master/user/quickstart/#passing-parameters-in-urls
@@ -16,7 +16,7 @@ inputcsv = pandas.read_csv(r'input2.csv')
 print(inputcsv)
 print()
 
-# create output dict that we'll insert data into as we look up lat/lngs
+#create output dict that we'll insert data into as we look up lat/lngs
 output_table = {}
 output_table['o_uuid'] = []
 output_table['o_lat'] = []
