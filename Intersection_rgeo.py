@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Use this script to get the closest intersection given a lat/lng pair
+#Use this script to get the closest intersection given a lat/lng pair
 #Clay Carroll cbcarroll@gmail.com
 
 #Requests Module: http://docs.python-requests.org/en/master/user/quickstart/#passing-parameters-in-urls
@@ -16,7 +16,7 @@ inputcsv = pandas.read_csv(r'input2.csv')
 print(inputcsv)
 print()
 
-# create output dict that we'll insert data into as we look up lat/lngs
+#create output dict that we'll insert data into as we look up lat/lngs
 output_table = {}
 output_table['o_uuid'] = []
 output_table['o_lat'] = []
@@ -63,25 +63,25 @@ for index, row in inputcsv.iterrows():
 		street_1_list = list(street_1)
 		
 		#N/S/E/W cleanup
-		if street_1_list[1] == ' ': #removes the N/S/E/W designation
+		if street_1_list[1] == ' ': #removes the N/S/E/W designation, if present
 			street_1_list.pop(0)
 			street_1_list.pop(0)
 			
-			#st/rd/ln/pl cleanup
-			if street_1_list[0] in [1,2,3,4,5,6,7,8,9,0]: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
-				street_1_clean = ''.join(street_1_list)
-				output_table['o_street1_clean'].append(street_1_clean)
+		#st/rd/ln/pl cleanup
+		if street_1_list[0] in [1,2,3,4,5,6,7,8,9,0]: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
+			street_1_clean = ''.join(street_1_list)
+			output_table['o_street1_clean'].append(street_1_clean)
 			
-			if street_1_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
-				street_1_list.pop()
-				street_1_list.pop()
-				street_1_list.pop()
-				
-			elif street_1_list[-4] == ' ': #removes Ave cases (3 letter abbreviation cases)
-				street_1_list.pop()
-				street_1_list.pop()
-				street_1_list.pop()
-				street_1_list.pop()
+		elif street_1_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
+			street_1_list.pop()
+			street_1_list.pop()
+			street_1_list.pop()
+			
+		elif street_1_list[-4] == ' ': #removes Ave cases (3 letter abbreviation cases)
+			street_1_list.pop()
+			street_1_list.pop()
+			street_1_list.pop()
+			street_1_list.pop()
 		street_1_clean = ''.join(street_1_list)
 		output_table['o_street1_clean'].append(street_1_clean)
 
@@ -89,25 +89,25 @@ for index, row in inputcsv.iterrows():
 		street_2_list = list(street_2)
 
 		#N/S/E/W cleanup
-		if street_2_list[1] == ' ': #removes the N/S/E/W designation
+		if street_2_list[1] == ' ': #removes the N/S/E/W designation, if present
 			street_2_list.pop(0)
 			street_2_list.pop(0)
 			
-			#st/rd/ln/pl cleanup
-			if street_2_list[0] in [1,2,3,4,5,6,7,8,9,0]: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
-				street_2_clean = ''.join(street_2_list)
-				output_table['o_street2_clean'].append(street_2_clean)
+		#st/rd/ln/pl cleanup
+		if street_2_list[0] in [1,2,3,4,5,6,7,8,9,0]: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
+			street_2_clean = ''.join(street_2_list)
+			output_table['o_street2_clean'].append(street_2_clean)
 		
-			if street_2_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
-				street_2_list.pop()
-				street_2_list.pop()
-				street_2_list.pop()
-				
-			elif street_2_list[-4] == ' ': #removes Ave cases (3 letter abbreviation cases)
-				street_2_list.pop()
-				street_2_list.pop()
-				street_2_list.pop()
-				street_2_list.pop()
+		elif street_2_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
+			street_2_list.pop()
+			street_2_list.pop()
+			street_2_list.pop()
+			
+		elif street_2_list[-4] == ' ': #removes Ave cases (3 letter abbreviation cases)
+			street_2_list.pop()
+			street_2_list.pop()
+			street_2_list.pop()
+			street_2_list.pop()
 		street_2_clean = ''.join(street_2_list)
 		output_table['o_street2_clean'].append(street_2_clean)
 
