@@ -69,23 +69,21 @@ for index, row in inputcsv.iterrows():
 			
 		#st/rd/ln/pl cleanup
 		if street_1_list[0] in [1,2,3,4,5,6,7,8,9,0]: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
-			street_1_clean = ''.join(street_1_list)
-			output_table['o_street1_clean'].append(street_1_clean)
-			
+			pass
+		
 		elif street_1_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
 			street_1_list.pop()
 			street_1_list.pop()
 			street_1_list.pop()
-			street_1_clean = ''.join(street_1_list)
-			output_table['o_street1_clean'].append(street_1_clean)
 			
 		elif street_1_list[-4] == ' ': #removes Ave cases (3 letter abbreviation cases)
 			street_1_list.pop()
 			street_1_list.pop()
 			street_1_list.pop()
 			street_1_list.pop()
-			street_1_clean = ''.join(street_1_list)
-			output_table['o_street1_clean'].append(street_1_clean)
+		
+		street_1_clean = ''.join(street_1_list)
+		output_table['o_street1_clean'].append(street_1_clean)
 
 		#street_2
 		street_2_list = list(street_2)
@@ -97,23 +95,21 @@ for index, row in inputcsv.iterrows():
 			
 		#st/rd/ln/pl cleanup
 		if street_2_list[0] in [1,2,3,4,5,6,7,8,9,0]: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
-			street_2_clean = ''.join(street_2_list)
-			output_table['o_street2_clean'].append(street_2_clean)
+			pass
 		
 		elif street_2_list[-3] == ' ': #removes Rd/St/Ln/Pl cases (2 letter abbreviation cases)
 			street_2_list.pop()
 			street_2_list.pop()
 			street_2_list.pop()
-			street_2_clean = ''.join(street_2_list)
-			output_table['o_street2_clean'].append(street_2_clean)
 			
 		elif street_2_list[-4] == ' ': #removes Ave cases (3 letter abbreviation cases)
 			street_2_list.pop()
 			street_2_list.pop()
 			street_2_list.pop()
 			street_2_list.pop()
-			street_2_clean = ''.join(street_2_list)
-			output_table['o_street2_clean'].append(street_2_clean)
+			
+		street_2_clean = ''.join(street_2_list)
+		output_table['o_street2_clean'].append(street_2_clean)
 
 		#yay, we made it, lest celebrate with this print statement        
 		print("SUCCESS looking up UUID:",table['resto_uuid'])
