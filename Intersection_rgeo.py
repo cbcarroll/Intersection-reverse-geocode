@@ -97,7 +97,7 @@ for index, row in inputcsv.iterrows():
 			street_2_list.pop(0)
 			
 		#st/rd/ln/pl cleanup
-		if street_1_list[-1] in ['1','2','3','4','5','6','7','8','9','0']: #does not make changes to "State Rte {{number}}" streets
+		if street_2_list[-1] in ['1','2','3','4','5','6','7','8','9','0']: #does not make changes to "State Rte {{number}}" streets
 			pass
 		
 		elif street_2_list[0] in ['1','2','3','4','5','6','7','8','9','0']: #numbered street edge case (we want to keep the st/rd/ln/pl designation)
