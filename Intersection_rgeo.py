@@ -129,6 +129,9 @@ for index, row in inputcsv.iterrows():
 		output_table['o_street2'].append("ERROR FROM API")
 		output_table['o_street2_clean'].append("ERROR FROM API")
 		print("FAILURE - API connection timed out for UUID:",table['resto_uuid'])
+		print(rgeo)
+		print(rgeo.text)
+		print()
 
 df = pandas.DataFrame(output_table)
 #df = pandas.DataFrame({ key:pandas.Series(value) for key, value in output_table.items() })
