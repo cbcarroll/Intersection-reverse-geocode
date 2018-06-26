@@ -27,6 +27,7 @@ output_table['o_street2'] = []
 output_table['o_street2_clean'] = []
 
 #loop through csv and build python dict with lat/lng pairs
+print("Beginning calls to Geocode API")
 for index, row in inputcsv.iterrows():
 	table = {}
 	table['resto_uuid'] = row['restaurant_uuid']
@@ -34,10 +35,9 @@ for index, row in inputcsv.iterrows():
 	table['lng'] = row['restaurant_lng']
 
 	#build payload to pass to requests call
-	payload = {'lat': table['lat'], 'lng': table['lng'], 'username': 'cbcarroll'}
+	payload = {'lat': table['lat'], 'lng': table['lng'], 'radius': '1.0', 'username': 'cbcarroll'}
 	
 	#make call to geonames URL api to return JSON response
-	#print("Making call to intersection API for UUID:",table['resto_uuid'])
 	rgeo = requests.get('http://api.geonames.org/findNearestIntersectionJSON', auth=('user', 'pass'), verify=False, params=payload)
 	rgeo.encoding = 'utf-8'
 
