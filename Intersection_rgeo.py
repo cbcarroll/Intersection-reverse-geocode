@@ -28,11 +28,11 @@ output_table['o_street2_clean'] = []
 
 #loop through csv and build python dict with lat/lng pairs
 print("Beginning calls to Geocode API")
-for index, row in inputcsv.iterrows():
+for uuid, row in inputcsv.iterrows():
 	table = {}
-	table['resto_uuid'] = row['restaurant_uuid']
-	table['lat'] = row['restaurant_lat']
-	table['lng'] = row['restaurant_lng']
+	table['resto_uuid'] = row['uuid']
+	table['lat'] = row['lat']
+	table['lng'] = row['lng']
 
 	#build payload to pass to requests call
 	payload = {'lat': table['lat'], 'lng': table['lng'], 'radius': '1.0', 'username': 'cbcarroll'}
